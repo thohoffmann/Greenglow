@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+            rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            rel="stylesheet"
+    />
+
+    <!-- Bootstrap 3.x -->
+    <script src="
+        https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap 5.1.3-->
+    <!--script crossOrigin="anonymous"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script-->
+
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .center-horitontally {
+            position: absolute;
+            left: calc(50% - 180px);
+        }
+
+        .carousel /*slider */
+        {
+            position: relative;
+        }
+
+        .carousel .carousel-indicators /* indicator wrapper*/
+        {
+            position: absolute;
+            bottom: 0;
+            left: 0px;
+            width: 100%;
+            margin: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            display: flex; /* this is for indicators  */
+        }
+
+        #headcarousel_container .carousel-indicators li /* indicators*/
+        {
+            flex-grow: 1; /* make all indicator li similarly stretched */
+            height: 40px;
+            border-radius: 2px;
+        }
+
+        #headcarousel_container .carousel-indicators li.active {
+            background-color: rgba(251, 222, 87, 0.5); /* changes indicators color when it is active*/
+        }
+
+        .carousel .carousel-inner .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #overlay-gardens {
+            position: fixed; /* Sit on top of the page content */
+            display: none;
+            width: 100%; /* Full width (cover the whole page) */
+            height: 100%; /* Full height (cover the whole page) */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+            z-index: 0; /* Specify a stack order in case you're using a different order for other elements */
+            cursor: pointer; /* Add a pointer on hover */
+        }
+
+        #overlay-domenica {
+            position: fixed; /* Sit on top of the page content */
+            display: none;
+            width: 100%; /* Full width (cover the whole page) */
+            height: 100%; /* Full height (cover the whole page) */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+            z-index: 0; /* Specify a stack order in case you're using a different order for other elements */
+            cursor: pointer; /* Add a pointer on hover */
+        }
+
+        #carousel-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 50px;
+            color: white;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+        }
+
+        .overlay-content {
+            position: absolute;
+            left: 50%;
+            font-size: 50px;
+            color: white;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" id="navbar"
+     style="background-color: black;opacity: .9 ">
+    <button class="navbar-toggler" id="navbartoggler" style="border: none" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 35px;">
+        <ul class="navbar-nav">
+            <li class="nav-item align-self-center" style="cursor: pointer;">
+                <a class="nav-link" onclick="changeContent(3)">Gardens</a>
+            </li>
+            <li class="nav-item align-self-center" style="cursor: pointer;">
+                <a class="nav-link" onclick="changeContent(3)">Ecotourism & Nature Immersion</a>
+            </li>
+            <li class="nav-item dropdown align-self-center">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Explore Domenica
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" style="cursor: pointer;" onclick="changeContent(1)">Skies and Heavens</a>
+                    <a class="dropdown-item" style="cursor: pointer;" onclick="changeContent(1)">Forest</a>
+                    <a class="dropdown-item" style="cursor: pointer;" onclick="changeContent(1)">Mountains</a>
+                    <a class="dropdown-item" style="cursor: pointer;" onclick="changeContent(1)">Water</a>
+                    <a class="dropdown-item" style="cursor: pointer;" onclick="changeContent(1)">Beach & Coastline</a>
+                </div>
+            </li>
+            <li class="nav-item align-self-center" style="cursor: pointer;">
+                <a class="nav-link" href="mailto:banyanboy@protonmail.com">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <div style=" margin-right: 45px;">
+        <span style="color: #9ae10a;">TRANQUIL</span> <span style="color: #FFFFFF;">TROPICS & LANDSCAPES</span>
+    </div>
+</nav>
+<body style="background-image: url('img/bg_glow.jpg');height:100%; background-size: inherit;background-repeat: no-repeat;background-color: #000000;">
+<div id="wrapper" style="height:100%;">
+    <!--END OVERLAYS-->
+    <!-- CARD CONTEST -->
+    <div class="card rounded-0 border-0 shadow-none" id="overlay-about"
+         style="background-color: #0d0d0d; opacity:.9; z-index: 0; margin-left: 0; margin-top: 170px; padding: 0;height: 230px;">
+        <div class="card-body border-0 shadow-none">
+            <div style="margin-top: 0px;">
+                <div id="previews" style="float: left;">
+                    <div style="margin-top: 0px;margin-left: 30px;">
+                        <iframe allowfullscreen frameborder="1"
+                                frameborder="0"
+                                height="196"
+                                src="https://www.youtube.com/embed/e72JLv4Uolk?autoplay=1&showinfo=0&controls=0"
+                                title="YouTube video player" width="350"></iframe>
+                    </div>
+                </div>
+                <div style="float: left;margin-left: 30px;margin-top:20px;color: #FFFFFF;">
+                    Welcome to Domenica!<br><br>
+                    My name is Curtis and I would like to<br>
+                    guide you through my beautiful country and the<br>
+                    gardens I created. If you wonder how to enjoy<br>
+                    the wonder of nature, I am more than happy<br>
+                    to help you with this experience.
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div>
+        &nbsp;<br>
+        &nbsp;<br>
+    </div>
+    <!--OVERLAYS-->
+    <div id="overlay-domenica" style="color: #ffffff">
+        <div id="overlay-content" style="font-size: 12px;font-family: Verdana;">
+            <img src="img/IMG_5915.jpg" class="img-fluid">
+            <div style="width: 600px;">
+                <p><br>
+                    gardens ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem
+                    ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="overlay-gardens" style="color: #ffffff;">
+        <div id="overlay-content_2" style="font-size: 12px;font-family: Verdana;">
+            <!-- Carousel wrapper -->
+            <div
+                    class="carousel"
+                    data-interval="false" data-bs-touch="false" id="carousel-wrapper" data-ride="false">
+
+                <div class="carousel-inner" style="height: 800px;">
+
+                    <div class="carousel-item active">
+                        <img
+                                alt="..."
+                                class="img-fluid"
+                                src="img/Image-4.jpg"
+                        />
+                        <div class="carousel-caption">
+                            <div class="center-horitontally" style="margin-top:60px;max-width:960px;border-color: #616161;">
+                                <p style="text-align: left;font-family: Verdana;font-size:16px;margin-top: 10px;">
+                                    A tropical island filled with countless wonders.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img
+                                alt="..."
+                                class="img-fluid"
+                                src="img/Image-7.jpg"
+                        />
+                        <div class="carousel-caption">
+                            <div class="center-horitontally" style="margin-top:60px;max-width:960px;border-color: #616161;">
+                                <p style="text-align: left;font-family: Verdana;margin-top: 10px;font-size: 16px;">
+                                    A tropical island filled with countless wonders.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img
+                                alt="..."
+                                class="img-fluid"
+                                src="img/Image-10.jpg"
+                        />
+                        <div class="carousel-caption">
+                            <div class="center-horitontally" style="margin-top:60px;max-width:960px;border-color: #616161;">
+                                <p style="text-align: left;font-family: Verdana;margin-top: 10px;font-size: 16px;">
+                                    A tropical island filled with countless wonders.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Carousel wrapper-->
+            <button
+                    class="carousel-control-prev"
+                    data-bs-slide="prev"
+                    data-bs-target="#carousel-wrapper"
+                    type="button"
+                    onclick="left()"
+            >
+                <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+                    class="carousel-control-next"
+                    data-bs-slide="next"
+                    data-bs-target="#carousel-wrapper"
+                    type="button"
+                    onclick="right()"
+            >
+                <span aria-hidden="true" class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- End Layer -->
+</div>
+<div class="card-footer fixed-bottom align-self-center"
+     style="font-size: 12px;background-color: #252021;border: none;opacity: 1;height: 50px; border-top-style: solid; border-top-color: #000000;">
+    <div style="color: #FFFFFF;text-align: center;">
+        <a href="policy.html" style="color: #FFFFFF;text-decoration: none;">privacy policy</a>
+        <a href="#"
+           style="margin-left: 30px; color: #FFFFFF;text-decoration: none;margin-right: 10px;font-family: Helvetica;">London
+            UK</a>|
+        <a href="#" style="margin-left: 10px;color: #FFFFFF;text-decoration: none;font-family: Helvetica;">registered in
+            England & Wales No
+            xxx xx xxx</a>
+    </div>
+</div>
+</div>
+<script>
+
+    // initialise carousel
+    let carousel = document.querySelector('#carousel-wrapper');
+    carousel = new bootstrap.Carousel(carousel);
+    carousel.interval = 10000;
+
+
+    function left(){
+
+        carousel.prev();
+        //carousel.pause = true;
+    }
+
+    function right(){
+
+        carousel.next();
+        //stopCarousel();
+        //carousel.pause = true;
+    }
+
+    function stopCarousel(){
+        $('.carousel').carousel('pause','true');
+    }
+
+    function changeContent(c) {
+
+        hideContent();
+
+        if (c == "0") {
+            document.getElementById("overlay-domenica").style.display = "block";
+        }
+        if (c == "1") {
+            document.getElementById("overlay-gardens").style.display = "block";
+        }
+        if (c == "3") {
+            document.getElementById("overlay-about").style.display = "block";
+        }
+    }
+
+    function hideContent() {
+        // display
+        document.getElementById("overlay-gardens").style.display = "none";
+        document.getElementById("overlay-domenica").style.display = "none";
+        document.getElementById("overlay-about").style.display = "none";
+    }
+</script>
+</body>
+</html>
