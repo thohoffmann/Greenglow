@@ -27,6 +27,28 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Tranquil Tropics and Landscapes</title>
 </head>
+<style>
+    .pswp__custom-caption {
+        background: rgba(75, 150, 75, 0.75);
+        font-size: 16px;
+        color: #fff;
+        width: calc(100% - 32px);
+        max-width: 400px;
+        padding: 2px 8px;
+        border-radius: 4px;
+        position: absolute;
+        left: 50%;
+        bottom: 16px;
+        transform: translateX(-50%);
+    }
+    .pswp__custom-caption a {
+        color: #fff;
+        text-decoration: underline;
+    }
+    .hidden-caption-content {
+        display: none;
+    }
+</style>
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" id="navbar"
      style="background-color: black;opacity: .9 ">
     <button class="navbar-toggler" id="navbartoggler" style="border: none" type="button" data-toggle="collapse"
@@ -61,7 +83,8 @@
         </ul>
     </div>
     <div style=" margin-right: 45px;">
-        <a href="index.html" style="text-decoration: none;"> <span style="color: #9ae10a;">TRANQUIL</span> <span style="color: #FFFFFF;">TROPICS & LANDSCAPES</span></a>
+        <a href="index.html" style="text-decoration: none;"> <span style="color: #9ae10a;">TRANQUIL</span> <span
+                style="color: #FFFFFF;">TROPICS & LANDSCAPES</span></a>
     </div>
 </nav>
 <body style="background-image: url('img/bg_glow.jpg'); background-repeat: no-repeat; background-position-x: center;background-position-y:center;
@@ -70,10 +93,10 @@
     <!--END OVERLAYS-->
     <!-- CARD CONTEST -->
     <div class="card rounded-0 border-0 shadow-none" id="overlay-about"
-         style="background-color: #0d0d0d; opacity:.8; z-index: 0; margin-left: 0; margin-top: 90px; padding: 0;height: 530px;">
+         style="background-color: #0d0d0d; opacity:.8; z-index: 0; margin-left: 0; margin-top: 110px; padding: 0;height: 590px;">
         <div class="card-body border-0 shadow-none">
             <div style="margin-top: 0;">
-               <div style="float: left;margin-left: 30px;margin-top:10px;color: #FFFFFF;">
+                <div style="float: left;margin-left: 30px;margin-top:10px;color: #FFFFFF;">
                     <div style="padding: 5px;">
                         Look skywards and observe the graduated shades of blue, <br>
                         decorated with floating pillows of moisture and warmed by <br>
@@ -83,55 +106,47 @@
                         and light brighter.
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- Root element of PhotoSwipe. Must have class pswp. -->
-        <div class="pswp-gallery pswp-gallery--single-column" id="gallery--getting-started">
-            <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-2500.jpg"
-               data-pswp-width="1669"
-               data-pswp-height="2500"
-               target="_blank">
-                <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-200.jpg" alt="" />
-            </a>
-            <!-- cropped thumbnail: -->
-            <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/7/img-2500.jpg"
-               data-pswp-width="1875"
-               data-pswp-height="2500"
-               data-cropped="true"
-               target="_blank">
-                <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/7/img-200.jpg" alt="" />
-                Cropped
-            </a>
-            <!-- data-pswp-src with custom URL in href -->
-            <a href="https://unsplash.com"
-               data-pswp-src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-2500.jpg"
-               data-pswp-width="2500"
-               data-pswp-height="1666"
-               target="_blank">
-                <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-200.jpg" alt="" />
-            </a>
-            <!-- Without thumbnail: -->
-            <a href="http://example.com"
-               data-pswp-src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/5/img-2500.jpg"
-               data-pswp-width="2500"
-               data-pswp-height="1668"
-               target="_blank">
-                No thumbnail
-            </a>
-            <!-- wrapped with any element: -->
-            <div>
-                <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/6/img-2500.jpg"
-                   data-pswp-width="2500"
-                   data-pswp-height="1667"
-                   target="_blank">
-                    <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/6/img-200.jpg" alt="" />
-                </a>
+                <!-- Root element of PhotoSwipe. Must have class pswp. -->
+                <div class="pswp-gallery pswp-gallery--single-column" id="gallery--getting-started" style="float: left;margin-top: 10px;margin-left: 30px;">
+                    <!-- Image -->
+                    <a href="./img/Image-21.jpg"
+                       data-pswp-width="1280"
+                       data-pswp-height="900"
+                       target="_blank"
+                       data-cropped="true">
+                        <img src="./img/Image-21.jpg" alt="" width="192" height="135" style="margin-top: 5px;"/>
+                    </a>
+                    <!-- Image -->
+                    <a href="./img/Image-22.jpg"
+                       data-pswp-width="960"
+                       data-pswp-height="1280"
+                       data-cropped="true"
+                       target="_blank">
+                        <img src="./img/Image-22.jpg" alt="" width="135" height="192"  style="margin-top: 5px;"/>
+                    </a>
+                    <!-- Image -->
+                    <a href="./img/Image-30.jpg"
+                       data-pswp-width="1280"
+                       data-pswp-height="1280"
+                       data-cropped="true"
+                       target="_blank">
+                        <img src="./img/Image-30.jpg" alt="" width="192" height="192"  style="margin-top: 5px;"/>
+                    <!-- Image -->
+                    <a href="./img/Image-23.jpg"
+                       data-pswp-width="960"
+                       data-pswp-height="1280"
+                       data-cropped="true"
+                       target="_blank">
+                        <img src="./img/Image-23.jpg" alt="" width="192" height="135"  style="margin-top: 5px;"/>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
     <div>
         &nbsp;<br>
         &nbsp;<br>
+        <br>
     </div>
 </div>
 <!-- End Layer -->
@@ -142,13 +157,13 @@
         <a href="#"
            style="margin-left: 30px; color: #FFFFFF;text-decoration: none;margin-right: 10px;font-family: Helvetica,serif;">London
             UK</a>|
-        <a href="#" style="margin-left: 10px;color: #FFFFFF;text-decoration: none;font-family: Helvetica,serif;">registered in
+        <a href="#" style="margin-left: 10px;color: #FFFFFF;text-decoration: none;font-family: Helvetica,serif;">registered
+            in
             England & Wales No
             xxx xx xxx</a>
     </div>
 </div>
-</body>
-<script lang="JavaScript">
+<script type="module">
     // Include Lightbox
     import PhotoSwipeLightbox from './js/photoswipe-lightbox.esm.js';
 
@@ -163,5 +178,7 @@
         pswpModule: () => import('./js/photoswipe.esm.js')
     });
     lightbox.init();
+    //alert(lightbox);
 </script>
+</body>
 </html>
